@@ -1,0 +1,8 @@
+.ImageAsset {
+  position: absolute;
+  inset: 0px;
+  z-index: 0;
+  overflow: hidden;
+  background: 50% 50% / cover no-repeat rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease 0s, opacity 0.4s ease 0s;
+}

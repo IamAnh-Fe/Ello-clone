@@ -1,4 +1,10 @@
-@import "./base";
-@import "./mixin";
+@import './base';
+@import './mixin';
 
-@import "../components/navbar/navbar";
+//-------------------------------assets
+@import '../components/assets/Sqrites/Sqrites.scss';
+
+@import '../components/navbar/navbar';
+
+@import '../components/heros/HeroParts/heropart';
+@import '../components/heros/HeroRenderables/herorenderables';

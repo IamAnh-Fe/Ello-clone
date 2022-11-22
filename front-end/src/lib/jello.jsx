@@ -19,14 +19,16 @@ export function scrollToPosition(x, y, options = {}) {
   }
   new TWEEN.Tween({
     x: el ? el.scrollLeft : window.pageXOffset || document.documentElement.scrollLeft,
-    y: el ? el.scrollTop : window.pageYOffset || document.documentElement.scrollTop,
+    y: el ? el.scrollTop : window.pageYOffset || document.documentElement.scrollTop
   })
     .easing(options.easing || TWEEN.Easing.Quartic.InOut)
     .to({ x: x || 0, y: y || 0 }, duration)
     .onUpdate(updateScroll)
     .onComplete(() => {
       animate = () => {}
-      if (typeof options.onComplete === 'function') { options.onComplete() }
+      if (typeof options.onComplete === 'function') {
+        options.onComplete()
+      }
     })
     .start()
   requestAnimationFrame(animate)

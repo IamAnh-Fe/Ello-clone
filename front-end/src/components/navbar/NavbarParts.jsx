@@ -1,26 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import {
-  ArrowIcon,
-  ElloLogoType,
-  PencilIcon,
-  XIconLG,
-} from '../assets/Icons'
+import { ArrowIcon, ElloLogoType, PencilIcon, XIconLG } from '../assets/Icons'
 
 export const NavbarMark = ({ onClick }) => (
-  <Link
-    className=''
-    draggable
-    onClick={onClick}
-    to="/"
-  >
+  <Link className='' draggable onClick={onClick} to='/'>
     <ElloLogoType />
   </Link>
 )
 
 NavbarMark.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
 }
 //----------------------
 
@@ -33,7 +23,7 @@ export const NavbarLink = ({
   // onDragOver,
   // onDrop,
   // pathname,
-  to,
+  to
 }) => {
   // const klassNames = classNames(
   //   'NavbarLink',

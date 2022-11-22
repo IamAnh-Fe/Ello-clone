@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { scrollToPosition } from '../lib/jello'
-import {  NavbarLoggedOut } from '../components/navbar/NavbarRenderables'
-import {  useDispatch } from 'react-redux'
+import { NavbarLoggedOut } from '../components/navbar/NavbarRenderables'
+import { useDispatch } from 'react-redux'
 
-export const  NavbarContainer = () => {
+export const NavbarContainer = () => {
   const dispatch = useDispatch()
 
   const onClickNavbarMark = () => {
@@ -12,10 +12,6 @@ export const  NavbarContainer = () => {
     // dispatch(push('/'))
     scrollToPosition(0, 0)
   }
-  
-    return (
-          <NavbarLoggedOut
-        onClickNavbarMark={onClickNavbarMark}
-      />
-    )
-} 
+
+  return <NavbarLoggedOut onClickNavbarMark={onClickNavbarMark} />
+}

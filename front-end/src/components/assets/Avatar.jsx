@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import classNames from 'classnames'
-import { getSource } from './BackgroundImage'
-import ImageAsset from './ImageAsset'
-import VideoAsset from './VideoAsset'
+import { getSource } from './BackgroundImage/BackgroundImage'
+import ImageAsset from './ImageAsset/ImageAsset'
+import VideoAsset from './VideoAsset/VideoAsset'
 import { before, css, media, modifier, parent, select } from '../../styles/jss'
 import * as s from '../../styles/jso'
 
@@ -12,7 +12,7 @@ const STATUS = {
   PENDING: 'isPending',
   REQUEST: 'isRequesting',
   SUCCESS: null,
-  FAILURE: 'isFailing',
+  FAILURE: 'isFailing'
 }
 
 // holy cow.
@@ -27,14 +27,10 @@ const baseStyle = css(
   {
     borderRadius: '50%',
     background: '#f0f0f0 no-repeat 50% 50%',
-    backgroundSize: 'cover',
+    backgroundSize: 'cover'
   },
   s.transitionTransform,
-  modifier(
-    '.inUserProfile',
-    { width: 180, height: 180, marginTop: 100, marginBottom: 15 },
-    s.bgcTransparent,
-  ),
+  modifier('.inUserProfile', { width: 180, height: 180, marginTop: 100, marginBottom: 15 }, s.bgcTransparent),
   modifier('.inUserProfileCard', s.zIndex3, { width: 60, height: 60 }, s.bgcTransparent),
   modifier('.inHeroPromotionCredits', s.bgcTransparent),
   modifier('.isXLarge', { width: 220, height: 220 }),
@@ -67,17 +63,9 @@ const baseStyle = css(
   media(
     s.maxBreak2,
     select('.isProfileMenuActive ~ .NavbarProfile > &', s.pointerNone),
-    select('.PostDetailHeader &',
-      s.wv40,
-      s.hv40,
-    ),
+    select('.PostDetailHeader &', s.wv40, s.hv40)
   ),
-  media(
-    s.minBreak2,
-    parent('.Post',
-      { width: 40, height: 40 },
-    ),
-  ),
+  media(s.minBreak2, parent('.Post', { width: 40, height: 40 })),
   media(
     s.minBreak3,
     { width: 40, height: 40 },
@@ -89,8 +77,8 @@ const baseStyle = css(
     parent('.PostHeader ', s.absolute, { top: 20 }),
     parent('.ArtistInviteSubmissionHeader ', s.absolute, { top: 20 }),
     parent('.CategoryHeader ', s.absolute, { top: 20 }),
-    parent('.RepostHeader ', s.absolute, { top: 20 }),
-  ),
+    parent('.RepostHeader ', s.absolute, { top: 20 })
+  )
 )
 
 const imageStyle = css(
@@ -103,7 +91,7 @@ const imageStyle = css(
   parent('.isPending > ', s.opacity0),
   parent('.isRequesting > ', s.opacity0),
   parent('.PostHeader .isPending > ', s.opacity1),
-  parent('.PostHeader .isRequesting > ', s.opacity1),
+  parent('.PostHeader .isRequesting > ', s.opacity1)
 )
 
 const videoStyle = css(
@@ -112,7 +100,7 @@ const videoStyle = css(
   s.fullWidth,
   s.fullHeight,
   { borderRadius: '50%', transition: 'opacity 0.4s', objectFit: 'cover' },
-  modifier('[src=""]', s.displayNone),
+  modifier('[src=""]', s.displayNone)
 )
 
 export default class Avatar extends PureComponent {
@@ -124,7 +112,7 @@ export default class Avatar extends PureComponent {
     size: PropTypes.string,
     to: PropTypes.string,
     userId: PropTypes.string,
-    username: PropTypes.string,
+    username: PropTypes.string
   }
 
   static defaultProps = {
@@ -135,12 +123,12 @@ export default class Avatar extends PureComponent {
     size: 'regular',
     to: null,
     userId: null,
-    username: null,
+    username: null
   }
 
   componentWillMount() {
     this.state = {
-      status: getSource({ ...this.props, dpi: this.props.size }) ? STATUS.REQUEST : STATUS.PENDING,
+      status: getSource({ ...this.props, dpi: this.props.size }) ? STATUS.REQUEST : STATUS.PENDING
     }
   }
 
@@ -149,7 +137,7 @@ export default class Avatar extends PureComponent {
     const nextSource = getSource({ ...nextProps, dpi: nextProps.size })
     if (thisSource !== nextSource) {
       this.setState({
-        status: nextSource ? STATUS.REQUEST : STATUS.PENDING,
+        status: nextSource ? STATUS.REQUEST : STATUS.PENDING
       })
     }
   }
@@ -170,7 +158,7 @@ export default class Avatar extends PureComponent {
       'data-priority': priority || 'inactive',
       'data-userid': userId,
       'data-username': username,
-      draggable: (username && username.length > 1) || (priority && priority.length),
+      draggable: (username && username.length > 1) || (priority && priority.length)
     }
     const src = getSource({ ...this.props, dpi: this.props.size })
     const isVideo = !!src && src.substr(-3) === 'mp4'
@@ -179,29 +167,29 @@ export default class Avatar extends PureComponent {
       className: `${imageStyle}`,
       src,
       onLoadFailure: this.onLoadFailure,
-      onLoadSuccess: this.onLoadSuccess,
+      onLoadSuccess: this.onLoadSuccess
     }
     const videoProps = {
       src,
-      className: `${videoStyle}`,
+      className: `${videoStyle}`
     }
 
     if (isVideo) {
       if (to) {
         return (
-          <Link {...wrapperProps} to={to} >
+          <Link {...wrapperProps} to={to}>
             <VideoAsset {...videoProps} />
           </Link>
         )
       } else if (onClick) {
         return (
-          <button {...wrapperProps} onClick={onClick} >
+          <button {...wrapperProps} onClick={onClick}>
             <VideoAsset {...videoProps} />
           </button>
         )
       }
       return (
-        <span {...wrapperProps} >
+        <span {...wrapperProps}>
           <VideoAsset {...videoProps} />
         </span>
       )
@@ -209,19 +197,19 @@ export default class Avatar extends PureComponent {
 
     if (to) {
       return (
-        <Link {...wrapperProps} to={to} >
+        <Link {...wrapperProps} to={to}>
           <ImageAsset {...imageProps} />
         </Link>
       )
     } else if (onClick) {
       return (
-        <button {...wrapperProps} onClick={onClick} >
+        <button {...wrapperProps} onClick={onClick}>
           <ImageAsset {...imageProps} />
         </button>
       )
     }
     return (
-      <span {...wrapperProps} >
+      <span {...wrapperProps}>
         <ImageAsset {...imageProps} />
       </span>
     )
