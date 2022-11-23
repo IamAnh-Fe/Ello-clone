@@ -9,7 +9,7 @@ export const AppleStore = ({ to }) => {
 }
 // -------------------------------------
 
-export const GooglePlayStore = () => {
+export const GooglePlayStore = ({ to }) => {
   return (
     <a className='sprite googleStoreStyle' href={to} rel='noopener noreferrer' target='_blank'>
       <span className='invisible'>Apple Store</span>

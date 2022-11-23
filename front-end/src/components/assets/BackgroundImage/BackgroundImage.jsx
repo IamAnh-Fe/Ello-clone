@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
-
+import { isGif } from '../../../helpers/file_helper'
+import { VideoAsset } from '../VideoAsset/VideoAsset'
+import { ImageAsset } from '../ImageAsset/ImageAsset'
 const STATUS = {
   PENDING: 'isPending',
   REQUEST: 'isRequesting',
@@ -49,7 +51,7 @@ export const BackgroundImage = (props) => {
   if (isVideo) {
     return (
       <Link className={classNames(classList, 'isLink')} onClick={onClick} to={to}>
-        <VideoAsset {...videoAssetProps} className={editorialVideoStyle} />
+        <VideoAsset {...videoAssetProps} className='editorialVideoStyle' />
       </Link>
     )
   }

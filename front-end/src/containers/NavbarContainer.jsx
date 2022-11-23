@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import { scrollToPosition } from '../lib/jello'
 import { NavbarLoggedOut } from '../components/navbar/NavbarRenderables'
 import { useDispatch } from 'react-redux'

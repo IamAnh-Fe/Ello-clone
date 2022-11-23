@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export const ImageAsset = (props) => {
   const { onLoadSuccess, onLoadFailure, onScreenDimensions } = props
@@ -6,25 +6,25 @@ export const ImageAsset = (props) => {
   const onLoadSuccessImage = () => {
     getDimensionsOnScreen()
     if (typeof onLoadSuccess === 'function') {
-      onLoadSuccess(img)
+      onLoadSuccess(this.img)
     }
     disposeLoader()
-    }
-    
+  }
+
   const onLoadFailureImage = () => {
     disposeLoader()
     if (typeof onLoadFailure === 'function') {
       onLoadFailure()
     }
-    }
-    
+  }
+
   const getDimensionsOnScreen = () => {
     const { isPostBody } = props
 
     if (isPostBody) {
       const onScreenDimensionsImage = {
-        width: imgOnScreen.clientWidth,
-        height: imgOnScreen.clientHeight
+        width: this.imgOnScreen.clientWidth,
+        height: this.imgOnScreen.clientHeight
       }
       onScreenDimensions(onScreenDimensionsImage)
     }
@@ -37,7 +37,7 @@ export const ImageAsset = (props) => {
     if (!hasSource) {
       return
     }
-    img = new Image()
+   const img = new Image()
     img.onload = onLoadSuccessImage
     img.onerror = onLoadFailureImage
     if (srcSet) {
@@ -49,7 +49,7 @@ export const ImageAsset = (props) => {
     createLoader()
   }, [])
   useEffect((prevProps) => {
-    if (!img && prevProps.src !== props.src) {
+    if (!this.img && prevProps.src !== props.src) {
       createLoader()
     }
     getDimensionsOnScreen()
@@ -60,12 +60,10 @@ export const ImageAsset = (props) => {
     }
   }, [])
   const disposeLoader = () => {
-    if (!img) {
-      return
-    }
-    img.onload = null
-    img.onerror = null
-    img = null
+   if (!this.img) { return }
+    this.img.onload = null
+    this.img.onerror = null
+    this.img = null
   }
 
   const elementProps = { ...props }

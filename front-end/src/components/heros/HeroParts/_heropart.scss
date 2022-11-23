@@ -1,0 +1,33 @@
+.HeroPromotionCredits {
+  &-credit {
+    position: absolute;
+    right: 0.625rem;
+    bottom: 0.625rem;
+    z-index: 1;
+    font-size: 0.875rem;
+    color: rgb(255, 255, 255);
+    transition: color 0.2s ease 0s, opacity 0.2s ease 0s;
+  }
+  &-creditExpanded{
+  z-index: 1;
+  }
+//   &-creditBy {
+  
+//   }
+  &-creditsAuthor {
+          display: inline-block;
+    margin-left: 0.625rem;
+    margin-right: 0.9375rem;
+    line-height: 1.2;
+    border-bottom: 1px solid;
+  }
+  //--------------------------
+@include minw(40em) {
+&-credit {
+    right: 1.25rem;
+    bottom: 1.25rem;
+}
+  }
+  //--------------------------
+
+}
