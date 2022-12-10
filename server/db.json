@@ -1,0 +1,60 @@
+{
+  "pageHeaders": [
+    { 
+      "id": "513",
+      "category": null,
+      "ctaLink": {"text":null, "url" : null},
+      "header": "CREATIVE BRIEFS",
+      "image": {
+        "hdpi" : {"metadata": {"height":414, "size": 169892, "type": "image/jpeg", "width": 403}, "url": "https://assets2.ello.co/uploads/promotional/image/513/ello-hdpi-d2024803.jpg"},
+        "optimized": {"metadata": {"height":1000, "size": 830593, "type": "image/jpeg", "width": 974}, "url" : "https://assets2.ello.co/uploads/promotional/image/513/ello-optimized-d2024803.jpg"},
+        "video": {"metadata": null,"url": null},
+        "xhpdi" : {"metadata": {"height":837, "size": 586157, "type": "image/jpeg", "width": 815},"url": "https://assets1.ello.co/uploads/promotional/image/513/ello-xhdpi-d2024803.jpg"},
+        "kind": "ARTIST_INVITE",
+        "postToken": "vtwojxcmqpzcnyzbvzm12g",
+        "slug": null,
+        "subheader": "Next-level <a href=\"https://ello.co/wtf/artists/\">Artist</a> x <a href=\"https://ello.co/wtf/brands-and-agencies/\">Brands</a> collaboration."
+    },
+      "user": {
+        "avatar": {
+            "large": {"metadata": {
+              "height": 360,
+              "size": 233581,
+              "type": "image/jpeg",
+              "width": 360
+            },
+            "url": "https://assets2.ello.co/uploads/user/avatar/2661901/ello-large-afc3ad19.png"
+        },
+             "original": {"metadata": {
+              "height": null,
+              "size": null,
+              "type": null,
+              "width": null
+            },
+            "url": "https://assets2.ello.co/uploads/user/avatar/2661901/ello-f3b42bcf-30da-476e-97d3-4e4d103d6e21.jpeg" 
+        },
+             "regular": {"metadata": {
+              "height": 120,
+              "size": 29059,
+              "type": "image/jpeg",
+              "width": 120
+            }, 
+            "url": "https://assets1.ello.co/uploads/user/avatar/2661901/ello-regular-afc3ad19.png"
+
+        },
+            "small": {"metadata": {
+              "height": 60,
+              "size": 8044,
+              "type": "image/jpeg",
+              "width": 60
+            },
+            "url": "https://assets1.ello.co/uploads/user/avatar/2661901/ello-small-afc3ad19.png"
+
+        }
+        },
+        "id": "2661901",
+        "username": "skip1frame"
+      }
+    }
+  ]
+}
